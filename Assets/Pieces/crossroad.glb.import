@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wq4kojhk5k1o"
-path="res://.godot/imported/TJunction.fbx-c7a572c3bfc2488f6f7ee302baa05915.scn"
+uid="uid://b6pw2gi08u5y4"
+path="res://.godot/imported/crossroad.glb-dc189a7fe45621bb11f692e671996129.scn"
 
 [deps]
 
-source_file="res://Assets/Pieces/TJunction.fbx"
-dest_files=["res://.godot/imported/TJunction.fbx-c7a572c3bfc2488f6f7ee302baa05915.scn"]
+source_file="res://Assets/Pieces/crossroad.glb"
+dest_files=["res://.godot/imported/crossroad.glb-dc189a7fe45621bb11f692e671996129.scn"]
 
 [params]
 

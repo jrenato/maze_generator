@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://drf1xf7omu067"]
 
-[ext_resource type="Script" path="res://Levels/maze_2d.gd" id="1_h7tpv"]
+[ext_resource type="Script" path="res://Examples/maze_2d.gd" id="1_h7tpv"]
 [ext_resource type="PackedScene" uid="uid://b80q41wkl6bww" path="res://Maze/maze_generator.tscn" id="1_k10av"]
 [ext_resource type="Texture2D" uid="uid://d2s0fo7pf01my" path="res://Assets/Dungeon/tilemap_packed.png" id="2_noma5"]
 

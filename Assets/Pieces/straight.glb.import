@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4jxpg1ppa5no"
-path="res://.godot/imported/Turn.fbx-92af5232d00fa04f02e7611256fc101e.scn"
+uid="uid://dy866w02gxayj"
+path="res://.godot/imported/straight.glb-dcb52b10aff424f1d14ca1b18519c8c2.scn"
 
 [deps]
 
-source_file="res://Assets/Pieces/Turn.fbx"
-dest_files=["res://.godot/imported/Turn.fbx-92af5232d00fa04f02e7611256fc101e.scn"]
+source_file="res://Assets/Pieces/straight.glb"
+dest_files=["res://.godot/imported/straight.glb-dcb52b10aff424f1d14ca1b18519c8c2.scn"]
 
 [params]
 

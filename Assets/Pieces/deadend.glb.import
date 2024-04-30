@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvpoac0egn8dc"
-path="res://.godot/imported/Crossroad.fbx-3e22bc2726f19116e732819b302e5eb3.scn"
+uid="uid://ctul2ffa0h14h"
+path="res://.godot/imported/deadend.glb-6da008d5b58534dae2672de6147b8ccf.scn"
 
 [deps]
 
-source_file="res://Assets/Pieces/Crossroad.fbx"
-dest_files=["res://.godot/imported/Crossroad.fbx-3e22bc2726f19116e732819b302e5eb3.scn"]
+source_file="res://Assets/Pieces/deadend.glb"
+dest_files=["res://.godot/imported/deadend.glb-6da008d5b58534dae2672de6147b8ccf.scn"]
 
 [params]
 

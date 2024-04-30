@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfsrjrooe6yg"
-path="res://.godot/imported/DeadEnd.fbx-5bc58b0c702714a6656dd00e32fb2379.scn"
+uid="uid://b51wwwkldj4vp"
+path="res://.godot/imported/tjunction.glb-5f2714d64699628f585f1e95f96ca2f2.scn"
 
 [deps]
 
-source_file="res://Assets/Pieces/DeadEnd.fbx"
-dest_files=["res://.godot/imported/DeadEnd.fbx-5bc58b0c702714a6656dd00e32fb2379.scn"]
+source_file="res://Assets/Pieces/tjunction.glb"
+dest_files=["res://.godot/imported/tjunction.glb-5f2714d64699628f585f1e95f96ca2f2.scn"]
 
 [params]
 
