@@ -146,8 +146,9 @@ sources/0 = SubResource("TileSetAtlasSource_5a83p")
 script = ExtResource("1_h7tpv")
 
 [node name="MazeGenerator" parent="." instance=ExtResource("1_k10av")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+width = 60
+height = 40
 
 [node name="TileMap" type="TileMap" parent="."]
 unique_name_in_owner = true
