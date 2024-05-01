@@ -193,6 +193,9 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Crossroad/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gkrhw")
 
+[node name="SpawnPoint" type="Marker3D" parent="Crossroad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
 [node name="DeadEnd" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 mesh = SubResource("ArrayMesh_8uglo")
@@ -202,6 +205,9 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeadEnd/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uw58s")
+
+[node name="SpawnPoint" type="Marker3D" parent="DeadEnd"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
 
 [node name="Straight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -213,6 +219,9 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Straight/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_efg2k")
 
+[node name="SpawnPoint" type="Marker3D" parent="Straight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
 [node name="TJunction" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 mesh = SubResource("ArrayMesh_8xmfl")
@@ -223,6 +232,9 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TJunction/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_y6a0f")
 
+[node name="SpawnPoint" type="Marker3D" parent="TJunction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
 [node name="Turn" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 mesh = SubResource("ArrayMesh_2g7u2")
@@ -232,3 +244,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Turn/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_385rb")
+
+[node name="SpawnPoint" type="Marker3D" parent="Turn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.5, 0.4)

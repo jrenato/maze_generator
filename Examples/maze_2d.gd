@@ -14,8 +14,8 @@ func _ready() -> void:
 
 func fill_tile_map() -> void:
 	tile_map.clear()
-	for x in range(maze_generator.width):
-		for y in range(maze_generator.height):
+	for x in range(maze_generator.width - 1):
+		for y in range(maze_generator.height - 1):
 			set_cell(x, y, maze_generator.maze_get(x, y))
 
 

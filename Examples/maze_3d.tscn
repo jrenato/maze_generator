@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvirpwmecgjar"]
+[gd_scene load_steps=8 format=3 uid="uid://dvirpwmecgjar"]
 
 [ext_resource type="Script" path="res://Examples/maze_3d.gd" id="1_myseb"]
+[ext_resource type="PackedScene" uid="uid://dedrowg5tkugt" path="res://Player/player.tscn" id="2_53di4"]
 [ext_resource type="PackedScene" uid="uid://b80q41wkl6bww" path="res://Maze/maze_generator.tscn" id="2_r3rh8"]
-[ext_resource type="MeshLibrary" uid="uid://cx63r68lp4lk" path="res://Examples/mesh_library.tres" id="3_tugcr"]
+[ext_resource type="MeshLibrary" uid="uid://bih82f6rr0ttk" path="res://Examples/mesh_library.tres" id="3_tugcr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0yd5m"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,6 +20,7 @@ glow_enabled = true
 
 [node name="Maze3D" type="Node3D"]
 script = ExtResource("1_myseb")
+player_scene = ExtResource("2_53di4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mwowj")
@@ -28,9 +30,11 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="MazeGenerator" parent="." instance=ExtResource("2_r3rh8")]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.5, 0.612373, -0.612372, 0, 0.707107, 0.707107, 0.866025, -0.353553, 0.353553, -4, 9.07057, 4.8397)
+unique_name_in_owner = true
+width = 30
+height = 30
+start_x = 2
+start_y = 2
 
 [node name="GridMap" type="GridMap" parent="."]
 unique_name_in_owner = true
