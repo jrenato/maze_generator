@@ -134,7 +134,7 @@ func is_pattern_matching(x: int, y: int, pattern: Array[int]) -> bool:
 func place_piece(x: int, y: int, yaw: float, piece_index: int) -> void:
 	var maze_scale: int = 2
 
-	# TODO: Instead of this, update the yaws on draw_maze
+	# TODO: Instead of this, update the yaws on draw_maze()
 	# Another possibility is changing the yaws on Blender
 	yaw -= 90.0
 	match piece_index:
@@ -156,4 +156,4 @@ func spawn_player() -> void:
 
 	var used_cells: Array[Vector3i] = grid_map.get_used_cells()
 	var used_cell: Vector3i = used_cells.pick_random()
-	player.position = grid_map.map_to_local(used_cell)
+	player.position = grid_map.map_to_local(used_cell) + Vector3(0, 1.5, 0)
