@@ -8,9 +8,12 @@ atlas = ExtResource("1_1dgay")
 region = Rect2(64, 160, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3lrdy"]
-radius = 5.0
+radius = 6.0
 
-[node name="Enemy2D" type="CharacterBody2D"]
+[node name="Enemy2D" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_3gdd0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,3 +24,4 @@ shape = SubResource("CircleShape2D_3lrdy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
+path_postprocessing = 1

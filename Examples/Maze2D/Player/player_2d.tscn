@@ -10,7 +10,8 @@ region = Rect2(16, 112, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6qu1"]
 radius = 7.0
 
-[node name="Player2D" type="CharacterBody2D"]
+[node name="Player2D" type="CharacterBody2D" groups=["players"]]
+collision_mask = 5
 script = ExtResource("1_8y73y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

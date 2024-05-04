@@ -1,7 +1,6 @@
 class_name Enemy2D extends CharacterBody2D
 
-var movement_speed: float = 200.0
-var movement_target_position: Vector2 = Vector2(0.0, 0.0)
+@export var movement_speed: float = 30.0
 
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 
@@ -19,7 +18,7 @@ func actor_setup() -> void:
 	await get_tree().physics_frame
 
 	# Now that the navigation map is no longer empty, set the movement target.
-	set_movement_target(movement_target_position)
+	# set_movement_target(movement_target_position)
 
 
 func set_movement_target(movement_target: Vector2) -> void:

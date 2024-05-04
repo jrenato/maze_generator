@@ -12,12 +12,28 @@ var carved_cells: Array[Vector2i]
 
 @onready var maze_generator: MazeGenerator = %MazeGenerator
 @onready var tile_map: TileMap = %TileMap
-@onready var navigation_region_2d: NavigationRegion2D = %NavigationRegion2D
 
 
 func _ready() -> void:
 	maze_generator.maze_generated.connect(_on_maze_generated)
 	maze_generator.generate_maze()
+	start_game()
+
+
+func start_game() -> void:
+	spawn_player()
+	spawn_enemy()
+	spawn_enemy()
+	spawn_enemy()
+	spawn_enemy()
+
+
+func set_cell(x: int, y: int, value: int) -> void:
+	if value == 0:
+		tile_map.set_cell(0, Vector2i(x, y), 0, floor_tile)
+		carved_cells.append(Vector2i(x, y))
+	else:
+		tile_map.set_cell(0, Vector2i(x, y), 0, wall_tile)
 
 
 func fill_tile_map() -> void:
@@ -27,19 +43,16 @@ func fill_tile_map() -> void:
 		for y in range(maze_generator.height - 1):
 			set_cell(x, y, maze_generator.maze_get(x, y))
 
+
+func spawn_player() -> void:
+	if not player_scene:
+		return
+
 	player = player_scene.instantiate()
 	add_child(player)
 	var first_cell: Vector2i = Vector2i(maze_generator.start_x, maze_generator.start_y)
 	var start_position: Vector2 = tile_map.map_to_local(first_cell)
 	player.position = start_position
-
-
-func set_cell(x: int, y: int, value: int) -> void:
-	if value == 0:
-		tile_map.set_cell(0, Vector2i(x, y), 0, floor_tile)
-		carved_cells.append(Vector2i(x, y))
-	else:
-		tile_map.set_cell(0, Vector2i(x, y), 0, wall_tile)
 
 
 func spawn_enemy() -> void:
@@ -51,9 +64,11 @@ func spawn_enemy() -> void:
 	var random_carved_cell: Vector2i = carved_cells.pick_random()
 	var random_position: Vector2 = tile_map.map_to_local(random_carved_cell)
 	enemy.position = random_position
-	enemy.movement_target_position = player.position
 
 
 func _on_maze_generated() -> void:
 	fill_tile_map()
-	spawn_enemy()
+
+
+func _on_enemy_nav_timer_timeout() -> void:
+	get_tree().call_group("enemies", "set_movement_target", player.position)
