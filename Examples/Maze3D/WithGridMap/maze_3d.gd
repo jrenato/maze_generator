@@ -82,9 +82,8 @@ func _ready() -> void:
 	maze_generator.generate_maze()
 	spawn_player()
 
-	#var initial_basis: Basis = Basis.IDENTITY
-	#for yaw in [0.0, 90.0, 180.0, -90.0]:
-		#print(grid_map.get_orthogonal_index_from_basis(initial_basis.rotated(Vector3.UP, deg_to_rad(yaw))))
+	# TODO: Why this isn't working?
+	print(get_tree().get_nodes_in_group("spawn_points").size())
 
 
 func draw_maze() -> void:
@@ -140,8 +139,7 @@ func place_piece(x: int, y: int, yaw: float, piece_index: int) -> void:
 	match piece_index:
 		TURN_PIECE:
 			yaw -= 90.0
-		_:
-			pass
+
 
 	var piece_position: Vector3i = Vector3i(x * maze_scale, 0, y * maze_scale)
 	var basis_rotated: Basis = Basis.IDENTITY.rotated(Vector3.UP, deg_to_rad(yaw))
@@ -156,4 +154,4 @@ func spawn_player() -> void:
 
 	var used_cells: Array[Vector3i] = grid_map.get_used_cells()
 	var used_cell: Vector3i = used_cells.pick_random()
-	player.position = grid_map.map_to_local(used_cell) + Vector3(0, 1.5, 0)
+	player.position = grid_map.map_to_local(used_cell)
