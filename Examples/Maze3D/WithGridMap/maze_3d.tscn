@@ -39,5 +39,4 @@ start_y = 2
 [node name="GridMap" type="GridMap" parent="."]
 unique_name_in_owner = true
 mesh_library = ExtResource("3_tugcr")
-cell_size = Vector3(4.5, 4.5, 4.5)
-cell_scale = 3.0
+cell_size = Vector3(1.5, 1.5, 1.5)
