@@ -1,10 +1,18 @@
 extends Node2D
 
+@export var player_scene: PackedScene
+@export var enemy_scene: PackedScene
 @export var floor_tile: Vector2i = Vector2i(0, 4)
 @export var wall_tile: Vector2i = Vector2i(4, 3)
 
-@onready var maze_generator: Node = %MazeGenerator
+var player: Player2D
+var enemy: Enemy2D
+
+var carved_cells: Array[Vector2i]
+
+@onready var maze_generator: MazeGenerator = %MazeGenerator
 @onready var tile_map: TileMap = %TileMap
+@onready var navigation_region_2d: NavigationRegion2D = %NavigationRegion2D
 
 
 func _ready() -> void:
@@ -14,17 +22,38 @@ func _ready() -> void:
 
 func fill_tile_map() -> void:
 	tile_map.clear()
+	carved_cells.clear()
 	for x in range(maze_generator.width - 1):
 		for y in range(maze_generator.height - 1):
 			set_cell(x, y, maze_generator.maze_get(x, y))
+
+	player = player_scene.instantiate()
+	add_child(player)
+	var first_cell: Vector2i = Vector2i(maze_generator.start_x, maze_generator.start_y)
+	var start_position: Vector2 = tile_map.map_to_local(first_cell)
+	player.position = start_position
 
 
 func set_cell(x: int, y: int, value: int) -> void:
 	if value == 0:
 		tile_map.set_cell(0, Vector2i(x, y), 0, floor_tile)
+		carved_cells.append(Vector2i(x, y))
 	else:
 		tile_map.set_cell(0, Vector2i(x, y), 0, wall_tile)
 
 
+func spawn_enemy() -> void:
+	if not enemy_scene:
+		return
+
+	enemy = enemy_scene.instantiate()
+	add_child(enemy)
+	var random_carved_cell: Vector2i = carved_cells.pick_random()
+	var random_position: Vector2 = tile_map.map_to_local(random_carved_cell)
+	enemy.position = random_position
+	enemy.movement_target_position = player.position
+
+
 func _on_maze_generated() -> void:
 	fill_tile_map()
+	spawn_enemy()

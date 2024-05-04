@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvirpwmecgjar"]
 
 [ext_resource type="Script" path="res://Examples/Maze3D/WithGridMap/maze_3d.gd" id="1_myseb"]
-[ext_resource type="PackedScene" uid="uid://dedrowg5tkugt" path="res://Examples/Maze3D/Player/player.tscn" id="2_53di4"]
+[ext_resource type="PackedScene" uid="uid://dedrowg5tkugt" path="res://Examples/Maze3D/Player/player_3d.tscn" id="2_53di4"]
 [ext_resource type="PackedScene" uid="uid://b80q41wkl6bww" path="res://Maze/maze_generator.tscn" id="2_r3rh8"]
 [ext_resource type="MeshLibrary" uid="uid://bih82f6rr0ttk" path="res://Examples/Maze3D/WithGridMap/mesh_library.tres" id="3_tugcr"]
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ibmt5thrukur"]
+
+[ext_resource type="Texture2D" uid="uid://d2s0fo7pf01my" path="res://Assets/Dungeon/tilemap_packed.png" id="1_1dgay"]
+[ext_resource type="Script" path="res://Examples/Maze2D/Enemy/enemy_2d.gd" id="1_3gdd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqxew"]
+atlas = ExtResource("1_1dgay")
+region = Rect2(64, 160, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lrdy"]
+radius = 5.0
+
+[node name="Enemy2D" type="CharacterBody2D"]
+script = ExtResource("1_3gdd0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_cqxew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3lrdy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true

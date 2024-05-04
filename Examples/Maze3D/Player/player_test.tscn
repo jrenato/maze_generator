@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bm7kwpw6bxhe4"]
 
-[ext_resource type="PackedScene" uid="uid://dedrowg5tkugt" path="res://Examples/Maze3D/Player/player.tscn" id="1_3pv0m"]
+[ext_resource type="PackedScene" uid="uid://dedrowg5tkugt" path="res://Examples/Maze3D/Player/player_3d.tscn" id="1_3pv0m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6vvlb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
