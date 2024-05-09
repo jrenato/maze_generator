@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://wgpvldyia3jr"]
+
+[ext_resource type="Script" path="res://Maze/pattern.gd" id="1_ln5bb"]
+
+[resource]
+script = ExtResource("1_ln5bb")
+top = Vector3i(1, 0, 1)
+middle = Vector3i(0, 0, 0)
+bottom = Vector3i(1, 0, 1)

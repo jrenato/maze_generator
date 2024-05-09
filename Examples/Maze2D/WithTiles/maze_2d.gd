@@ -7,21 +7,26 @@ extends Node2D
 @export var floor_tile: Vector2i = Vector2i(0, 4)
 @export var wall_tile: Vector2i = Vector2i(4, 3)
 
+@export var width: int = 60
+@export var height: int = 40
+@export var start_x: int = 5
+@export var start_y: int = 5
+
 var player: Player2D
 var enemy: Enemy2D
 
 var carved_cells: Array[Vector2i]
 var furthest_carved_cell: Vector2
 
-@onready var maze_generator: MazeGenerator = %MazeGenerator
+@onready var layout_generator: LayoutGenerator = %LayoutGenerator
 @onready var tile_map: TileMap = %TileMap
 
 
 func _ready() -> void:
-	maze_generator.maze_generated.connect(_on_maze_generated)
-	maze_generator.generate_maze()
+	layout_generator.layout_generated.connect(_on_layout_generated)
+	layout_generator.generate_layout(width, height, start_x, start_y)
 
-	var start_position: Vector2 = Vector2(maze_generator.start_x, maze_generator.start_y)
+	var start_position: Vector2 = Vector2(start_x, start_y)
 
 	for carved_cell in carved_cells:
 		var carved_cell_temp: Vector2 = carved_cell
@@ -39,9 +44,9 @@ func _ready() -> void:
 
 
 func start_game() -> void:
-	spawn_player()
 	spawn_objects(enemy_scene, 4)
 	spawn_objects(chest_scene, 4)
+	spawn_player()
 
 
 func spawn_objects(object_scene: PackedScene, amount: int = 1) -> void:
@@ -62,9 +67,9 @@ func set_cell(x: int, y: int, value: int) -> void:
 func fill_tile_map() -> void:
 	tile_map.clear()
 	carved_cells.clear()
-	for x in range(maze_generator.width - 1):
-		for y in range(maze_generator.height - 1):
-			set_cell(x, y, maze_generator.maze_get(x, y))
+	for x in range(width - 1):
+		for y in range(height - 1):
+			set_cell(x, y, layout_generator.layout_get(x, y))
 
 
 func spawn_player() -> void:
@@ -73,7 +78,7 @@ func spawn_player() -> void:
 
 	player = player_scene.instantiate()
 	add_child(player)
-	var first_cell: Vector2i = Vector2i(maze_generator.start_x, maze_generator.start_y)
+	var first_cell: Vector2i = Vector2i(start_x, start_y)
 	var start_position: Vector2 = tile_map.map_to_local(first_cell)
 	player.position = start_position
 
@@ -87,7 +92,7 @@ func spawn_object(object_scene: PackedScene, object_position: Vector2) -> void:
 	object.position = object_position
 
 
-func _on_maze_generated() -> void:
+func _on_layout_generated() -> void:
 	fill_tile_map()
 
 

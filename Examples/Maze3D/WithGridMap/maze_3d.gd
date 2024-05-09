@@ -10,8 +10,8 @@ const TURN_PIECE: int = 		4
 
 # Straight -- 5s are wildcards --
 var horizontal_straight_pattern: Array[int] = [ 5, 1, 5,
-												0, 0, 0,
-												5, 1, 5 ]
+ 												0, 0, 0,
+ 												5, 1, 5 ]
 
 var vertical_straight_pattern: Array[int] = [   5, 0, 5,
 												1, 0, 1,
@@ -20,19 +20,19 @@ var vertical_straight_pattern: Array[int] = [   5, 0, 5,
 # TJunctions	
 var t_junction_up_pattern: Array[int] = [   1, 0, 1,
 											0, 0, 0,
-											5, 1, 5 ];
+											5, 1, 5 ]
 
 var t_junction_down_pattern: Array[int] = [ 5, 1, 5,
 											0, 0, 0,
 											1, 0, 1 ]
 
 var t_junction_left_pattern: Array[int] = [ 1, 0, 5,
-											0, 0, 1,
-											1, 0, 5 ]
+ 											0, 0, 1,
+ 											1, 0, 5 ]
 
 var t_junction_right_pattern: Array[int] = [5, 0, 1,
-											1, 0, 0,
-											5, 0, 1 ]
+ 											1, 0, 0,
+ 											5, 0, 1 ]
 
 # Crossroad
 var crossroad_pattern: Array[int] = [   1, 0, 1,
@@ -67,7 +67,7 @@ var dead_end_down_pattern: Array[int] = [   5, 1, 5,
 
 var dead_end_left_pattern: Array[int] = [   5, 1, 5,
 											0, 0, 1,
-											5, 1, 5 ];
+											5, 1, 5 ]
 
 var dead_end_right_pattern: Array[int] = [  5, 1, 5,
 											1, 0, 0,

@@ -1,0 +1,40 @@
+[gd_scene load_steps=18 format=3 uid="uid://b4sggys8jvqtv"]
+
+[ext_resource type="Script" path="res://Maze/maze_builder.gd" id="1_rxo2a"]
+[ext_resource type="Resource" uid="uid://wgpvldyia3jr" path="res://Maze/Patterns/Crossroads/crossroad.tres" id="2_npyxk"]
+[ext_resource type="PackedScene" uid="uid://b80q41wkl6bww" path="res://Maze/layout_generator.tscn" id="2_tdxn1"]
+[ext_resource type="Resource" uid="uid://b41882wllgn4t" path="res://Maze/Patterns/Straights/horizontal_straight_pattern.tres" id="2_tsth0"]
+[ext_resource type="Resource" uid="uid://d3yohpnhsf20d" path="res://Maze/Patterns/DeadEnds/dead_end_down_pattern.tres" id="3_3n2b5"]
+[ext_resource type="Resource" uid="uid://cd2kd073euop6" path="res://Maze/Patterns/DeadEnds/dead_end_up_pattern.tres" id="4_rj0e0"]
+[ext_resource type="Resource" uid="uid://bmp168rewai0b" path="res://Maze/Patterns/DeadEnds/dead_end_left_pattern.tres" id="5_1u6uu"]
+[ext_resource type="Resource" uid="uid://p2ajh47s4gne" path="res://Maze/Patterns/DeadEnds/dead_end_right_pattern.tres" id="6_s5ote"]
+[ext_resource type="Resource" uid="uid://giq1d1lul3qx" path="res://Maze/Patterns/Straights/vertical_straight_pattern.tres" id="8_oifdq"]
+[ext_resource type="Resource" uid="uid://bxsjj77byxh8w" path="res://Maze/Patterns/Turns/turn_left_down_pattern.tres" id="9_2b3ru"]
+[ext_resource type="Resource" uid="uid://bk2dcrwu7b1is" path="res://Maze/Patterns/Turns/turn_left_up_pattern.tres" id="10_nr57y"]
+[ext_resource type="Resource" uid="uid://cbibcnhg3cu0k" path="res://Maze/Patterns/Turns/turn_right_down_pattern.tres" id="11_tplg1"]
+[ext_resource type="Resource" uid="uid://knf1m5vm8n2t" path="res://Maze/Patterns/Turns/turn_right_up_pattern.tres" id="12_gxiad"]
+[ext_resource type="Resource" uid="uid://cqnlvuxk8xpuh" path="res://Maze/Patterns/T_Junctions/t_junction_down_pattern.tres" id="13_qjn64"]
+[ext_resource type="Resource" uid="uid://wv7ilidwycqj" path="res://Maze/Patterns/T_Junctions/t_junction_up_pattern.tres" id="14_kex1y"]
+[ext_resource type="Resource" uid="uid://clkpwaywfs00g" path="res://Maze/Patterns/T_Junctions/t_junction_left_pattern.tres" id="15_u8xv1"]
+[ext_resource type="Resource" uid="uid://nghaqee5lm68" path="res://Maze/Patterns/T_Junctions/t_junction_right_pattern.tres" id="16_nfyos"]
+
+[node name="MazeBuilder" type="Node"]
+script = ExtResource("1_rxo2a")
+crossroad = ExtResource("2_npyxk")
+dead_end_down = ExtResource("3_3n2b5")
+dead_end_up = ExtResource("4_rj0e0")
+dead_end_left = ExtResource("5_1u6uu")
+dead_end_right = ExtResource("6_s5ote")
+horizontal_straight = ExtResource("2_tsth0")
+vertical_straight = ExtResource("8_oifdq")
+turn_left_down = ExtResource("9_2b3ru")
+turn_left_up = ExtResource("10_nr57y")
+turn_right_down = ExtResource("11_tplg1")
+turn_right_up = ExtResource("12_gxiad")
+t_junction_down = ExtResource("13_qjn64")
+t_junction_up = ExtResource("14_kex1y")
+t_junction_left = ExtResource("15_u8xv1")
+t_junction_right = ExtResource("16_nfyos")
+
+[node name="LayoutGenerator" parent="." instance=ExtResource("2_tdxn1")]
+unique_name_in_owner = true

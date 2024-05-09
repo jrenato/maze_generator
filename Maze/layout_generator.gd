@@ -1,13 +1,13 @@
-class_name MazeGenerator extends Node
+class_name LayoutGenerator extends Node
 
-signal maze_generated
+signal layout_generated
 
 enum Direction {UP, RIGHT, DOWN, LEFT}
 
-@export var width: int = 100
-@export var height: int = 100
-@export var start_x: int = 5
-@export var start_y: int = 5
+var width: int = 100
+var height: int = 100
+var start_x: int = 5
+var start_y: int = 5
 
 var maze_data: Array[int] = []
 var directions: Array[int] = [Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT]
@@ -19,22 +19,28 @@ func _ready() -> void:
 	pass
 
 
-func maze_init() -> void:
+func layout_init() -> void:
 	maze_data.clear()
 	maze_data.resize(width * height)
+	# Fill the maze with walls
 	maze_data.fill(1)
 
 
-func maze_set(x: int, y: int, value: int) -> void:
+func layout_set(x: int, y: int, value: int) -> void:
 	maze_data[x + y * width] = value
 
 
-func maze_get(x: int, y: int) -> int:
+func layout_get(x: int, y: int) -> int:
 	return maze_data[x + y * width]
 
 
-func generate_maze() -> void:
-	maze_init()
+func generate_layout(maze_width: int = 100, maze_height: int = 100, maze_start_x: int = 5, maze_start_y: int = 5) -> void:
+	width = maze_width
+	height = maze_height
+	start_x = maze_start_x
+	start_y = maze_start_y
+
+	layout_init()
 
 	cell_cache.clear()
 	# Adds the starting cell to the cache
@@ -57,7 +63,7 @@ func generate_maze() -> void:
 			# Reached a dead end, remove the current cell from cache
 			cell_cache.pop_back()
 
-	maze_generated.emit()
+	layout_generated.emit()
 
 
 func carve_cell(x: int, y: int) -> Variant:
@@ -66,35 +72,35 @@ func carve_cell(x: int, y: int) -> Variant:
 	for direction in directions:
 		match direction:
 			Direction.UP:
-				if (x + 2 >= width - 1 || maze_get(x + 2, y) == 0):
+				if (x + 2 >= width - 1 || layout_get(x + 2, y) == 0):
 					continue
 
-				maze_set(x + 2, y, 0)
-				maze_set(x + 1, y, 0)
+				layout_set(x + 2, y, 0)
+				layout_set(x + 1, y, 0)
 				return Vector2i(x + 2, y)
 
 			Direction.RIGHT:
-				if (y + 2 >= height - 1 || maze_get(x, y + 2) == 0):
+				if (y + 2 >= height - 1 || layout_get(x, y + 2) == 0):
 					continue
 
-				maze_set(x, y + 2, 0)
-				maze_set(x, y + 1, 0)
+				layout_set(x, y + 2, 0)
+				layout_set(x, y + 1, 0)
 				return Vector2i(x, y + 2)
 
 			Direction.DOWN:
-				if (x - 2 <= 0 || maze_get(x - 2, y) == 0):
+				if (x - 2 <= 0 || layout_get(x - 2, y) == 0):
 					continue
 
-				maze_set(x - 2, y, 0)
-				maze_set(x - 1, y, 0)
+				layout_set(x - 2, y, 0)
+				layout_set(x - 1, y, 0)
 				return Vector2i(x - 2, y)
 
 			Direction.LEFT:
-				if (y - 2 <= 0 || maze_get(x, y - 2) == 0):
+				if (y - 2 <= 0 || layout_get(x, y - 2) == 0):
 					continue
 
-				maze_set(x, y - 2, 0)
-				maze_set(x, y - 1, 0)
+				layout_set(x, y - 2, 0)
+				layout_set(x, y - 1, 0)
 				return Vector2i(x, y - 2)
 
 	return null
