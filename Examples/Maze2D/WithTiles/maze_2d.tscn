@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://drf1xf7omu067"]
+[gd_scene load_steps=11 format=3 uid="uid://drf1xf7omu067"]
 
 [ext_resource type="Script" path="res://Examples/Maze2D/WithTiles/maze_2d.gd" id="1_h7tpv"]
 [ext_resource type="PackedScene" uid="uid://b80q41wkl6bww" path="res://Maze/maze_generator.tscn" id="1_k10av"]
 [ext_resource type="Texture2D" uid="uid://d2s0fo7pf01my" path="res://Assets/Dungeon/tilemap_packed.png" id="2_noma5"]
+[ext_resource type="PackedScene" uid="uid://oi78msre10tp" path="res://Examples/Maze2D/Chest/chest.tscn" id="4_5eadq"]
 [ext_resource type="PackedScene" uid="uid://d36qhlirlhwqg" path="res://Examples/Maze2D/Player/player_2d.tscn" id="4_ixkup"]
 [ext_resource type="PackedScene" uid="uid://ibmt5thrukur" path="res://Examples/Maze2D/Enemy/enemy_2d.tscn" id="5_damch"]
+[ext_resource type="PackedScene" uid="uid://bnqrtaetajg2v" path="res://Examples/Maze2D/Door/door.tscn" id="5_jfg43"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_j820t"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -424,6 +426,8 @@ sources/0 = SubResource("TileSetAtlasSource_5a83p")
 script = ExtResource("1_h7tpv")
 player_scene = ExtResource("4_ixkup")
 enemy_scene = ExtResource("5_damch")
+chest_scene = ExtResource("4_5eadq")
+door_scene = ExtResource("5_jfg43")
 
 [node name="MazeGenerator" parent="." instance=ExtResource("1_k10av")]
 unique_name_in_owner = true

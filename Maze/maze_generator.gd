@@ -14,6 +14,7 @@ var directions: Array[int] = [Direction.UP, Direction.RIGHT, Direction.DOWN, Dir
 # Remaining cells that may be carved
 var cell_cache: Array[Vector2i] = []
 
+
 func _ready() -> void:
 	pass
 
