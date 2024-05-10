@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brkut1okpwvwq"]
+
+[ext_resource type="Script" path="res://Maze/pattern_matcher.gd" id="1_l6r7v"]
+
+[node name="PatternMatcher" type="Node"]
+script = ExtResource("1_l6r7v")

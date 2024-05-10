@@ -74,23 +74,23 @@ var dead_end_right_pattern: Array[int] = [  5, 1, 5,
 											5, 1, 5 ]
 
 @onready var grid_map: GridMap = %GridMap
-@onready var maze_generator: Node = %MazeGenerator
+@onready var layout_generator: Node = %LayoutGenerator
 
 
 func _ready() -> void:
-	maze_generator.maze_generated.connect(draw_maze)
-	maze_generator.generate_maze()
+	layout_generator.layout_generated.connect(build_maze)
+	layout_generator.generate_layout(100, 100, 5, 5)
 	spawn_player()
 
 	# TODO: Why this isn't working?
 	print(get_tree().get_nodes_in_group("spawn_points").size())
 
 
-func draw_maze() -> void:
+func build_maze() -> void:
 	grid_map.clear()
 
-	for x in range(maze_generator.width - 1):
-		for y in range(maze_generator.height - 1):
+	for x in range(layout_generator.width - 1):
+		for y in range(layout_generator.height - 1):
 			# Straight
 			if   (is_pattern_matching(x, y, horizontal_straight_pattern)): place_piece(x, y, 90.0, STRAIGHT_PIECE)
 			elif (is_pattern_matching(x, y, vertical_straight_pattern)): place_piece(x, y, 0.0, STRAIGHT_PIECE)
@@ -122,7 +122,7 @@ func is_pattern_matching(x: int, y: int, pattern: Array[int]) -> bool:
 	var i: int = 0
 	for cell_y in range(1, -2, -1):
 		for cell_x in range(-1, 2):
-			var cell_value: int = maze_generator.maze_get(x + cell_y, y + cell_x)
+			var cell_value: int = layout_generator.layout_get(x + cell_y, y + cell_x)
 			if pattern[i] == cell_value or pattern[i] == 5:
 				count += 1
 			i += 1

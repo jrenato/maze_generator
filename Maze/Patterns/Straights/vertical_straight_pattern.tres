@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://giq1d1lul3qx"]
-
-[ext_resource type="Script" path="res://Maze/pattern.gd" id="1_xvysk"]
-
-[resource]
-script = ExtResource("1_xvysk")
-top = Vector3i(5, 0, 5)
-middle = Vector3i(1, 0, 1)
-bottom = Vector3i(5, 0, 5)
